@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<section class="mb-12">
+  <h2 class="text-2xl font-bold mb-4">DOM XSS - Level 2</h2>
+  <p class="text-gray-600 mb-4">This challenge involves injecting JavaScript into a link.</p>
+
+  <p class="text-gray-600 mb-2">Enter a URL and click the link:</p>
+  <input type="text" id="userInput" class="border p-2 rounded" placeholder="Enter a URL..." />
+  <button onclick="updateLink()" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">
+    Set Link
+  </button>
+
+  <p class="mt-4">
+    <a id="targetLink" href="#" class="text-blue-500 underline">Click Me</a>
+  </p>
+
+  <script>
+    function updateLink() {
+      const value = document.getElementById('userInput').value;
+      document.getElementById('targetLink').href = value;
+    }
+  </script>
+</section>
+{% endblock %}

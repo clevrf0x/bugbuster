@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% block content %}
+<section class="text-center mb-12">
+  <h2 class="text-2xl font-bold mb-4">XSS Vulnerabilities</h2>
+  <p class="text-gray-600 max-w-2xl mx-auto">
+    Explore different types of Cross-Site Scripting (XSS) vulnerabilities and learn how to exploit
+    and prevent them.
+  </p>
+</section>
+
+<!-- Stored XSS Section -->
+<section class="mb-12">
+  <h3 class="text-xl font-bold mb-4">Stored XSS</h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <a
+      href="/xss/stored/level1"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 1: Basic</h4>
+      <p class="text-gray-600">No sanitization. Use any XSS payload to exploit.</p>
+    </a>
+    <a
+      href="/xss/stored/level2"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 2: Partial Sanitization</h4>
+      <p class="text-gray-600">Filters &lt;script&gt;. Try other tags or events.</p>
+    </a>
+    <a
+      href="/xss/stored/level3"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 3: Advanced Sanitization</h4>
+      <p class="text-gray-600">Blacklists common events. Use niche events to bypass.</p>
+    </a>
+  </div>
+</section>
+
+<!-- Reflected XSS Section -->
+<section class="mb-12">
+  <h3 class="text-xl font-bold mb-4">Reflected XSS</h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <a
+      href="/xss/reflected/level1"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 1: Basic</h4>
+      <p class="text-gray-600">No sanitization. Use any XSS payload.</p>
+    </a>
+    <a
+      href="/xss/reflected/level2"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 2: Partial Sanitization</h4>
+      <p class="text-gray-600">Filters &lt;script&gt; and javascript:. Try other tags or events.</p>
+    </a>
+    <a
+      href="/xss/reflected/level3"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 3: Context-Based</h4>
+      <p class="text-gray-600">Reflected in an attribute. Escape the context.</p>
+    </a>
+  </div>
+</section>
+
+<!-- DOM XSS Section -->
+<section class="mb-12">
+  <h3 class="text-xl font-bold mb-4">DOM XSS</h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <a
+      href="/xss/dom/level1"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 1: Basic</h4>
+      <p class="text-gray-600">
+        Direct DOM manipulation from URL parameter. No sanitization. Easy to exploit.
+      </p>
+    </a>
+    <a
+      href="/xss/dom/level2"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 2: Link Injection</h4>
+      <p class="text-gray-600">Inject JavaScript into a link. Can you bypass the restrictions?</p>
+    </a>
+    <a
+      href="/xss/dom/level3"
+      class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <h4 class="text-lg font-semibold mb-2">Level 3: Eval Exploitation</h4>
+      <p class="text-gray-600">
+        Break out of an eval() function. Advanced challenge with flawed sanitization.
+      </p>
+    </a>
+  </div>
+</section>
+{% endblock %}

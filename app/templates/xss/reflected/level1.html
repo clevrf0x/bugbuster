@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<section class="mb-12">
+  <h2 class="text-2xl font-bold mb-4">Reflected XSS - Level 1</h2>
+  <p class="text-gray-600 mb-4">Search for something:</p>
+  <form method="get" class="mb-8">
+    <input
+      type="text"
+      name="query"
+      class="w-full p-2 border rounded-lg"
+      placeholder="Enter your search term" />
+    <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Search</button>
+  </form>
+
+  {% if query %}
+  <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+    <p>You searched for: {{ query | safe }}</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+<section class="mb-12">
+  <h2 class="text-2xl font-bold mb-4">Stored XSS - Level 1</h2>
+  <p class="text-gray-600 mb-4">Enter a comment:</p>
+  <form method="post" class="mb-8">
+    <textarea name="comment" class="w-full p-2 border rounded-lg"></textarea>
+    <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">Submit</button>
+  </form>
+
+  <div>
+    <h3 class="text-xl font-bold mb-4">Comments</h3>
+    {% for comment in comments %}
+    <div class="bg-white p-4 rounded-lg shadow-md mb-4">{{ comment.comment | safe }}</div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<section class="mb-12 p-6 bg-gray-100 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800">DOM XSS - Level 1</h2>
+  <p class="text-gray-600 mb-4">Basic DOM XSS vulnerability:</p>
+  <div class="flex items-center space-x-2 mb-4">
+    <input
+      type="text"
+      id="userInput"
+      placeholder="Enter text..."
+      class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    <button
+      onclick="updateOutput()"
+      class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+      Submit
+    </button>
+  </div>
+  <div id="output" class="p-4 bg-white border border-gray-300 rounded-lg shadow-sm"></div>
+  <script>
+    // Vulnerable: Direct DOM manipulation from URL parameter
+    const value = new URLSearchParams(window.location.search).get('input');
+    document.getElementById('output').innerHTML = value;
+
+    function updateOutput() {
+      const inputVal = document.getElementById('userInput').value;
+      document.getElementById('output').innerHTML = inputVal;
+    }
+  </script>
+</section>
+{% endblock %}
