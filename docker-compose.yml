@@ -2,8 +2,8 @@ services:
   web:
     build: .
     ports:
-      - '80:80'
+      - '8090:8090'
     volumes:
       - .:/app
-    command: uvicorn app.main:app --host 0.0.0.0 --port 80 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8090 --reload
     restart: always
